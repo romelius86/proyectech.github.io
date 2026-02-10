@@ -11,9 +11,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --color-primary: #2c3e50;
-            --color-secondary: #e74c3c;
-            --color-accent: #f39c12;
+            --color-primary: #0f172a;
+            --color-secondary: #2563eb;
+            --color-accent: #f59e0b;
+            --color-whatsapp: #25D366;
+            --color-facebook: #1877F2;
         }
 
         body {
@@ -26,13 +28,27 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #1d4ed8 100%);
             transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--color-whatsapp) 0%, #128c7e 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .text-facebook {
+            color: var(--color-facebook);
         }
 
         .mobile-menu {
@@ -54,21 +70,21 @@
         }
     </style>
     <script>
-        tailwind.config = { theme: { extend: { colors: { primary: '#2c3e50', secondary: '#e74c3c', accent: '#f39c12' } } } }
+        tailwind.config = { theme: { extend: { colors: { primary: '#0f172a', secondary: '#2563eb', accent: '#f59e0b', whatsapp: '#25D366', facebook: '#1877F2' } } } }
     </script>
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-slate-50">
     <nav id="navbar" class="navbar-sticky fixed w-full top-0 z-50">
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo con Nombre -->
-                <a href="index.html" class="flex items-center space-x-4 group">
+                <a href="index.html" class="flex items-center space-x-2 md:space-x-4 group">
                     <img src="assets/logo_nuevo.png" alt="Icono"
-                        class="h-12 md:h-14 w-auto transition-transform group-hover:scale-105">
-                    <div class="flex items-center text-2xl md:text-3xl font-black tracking-tighter drop-shadow-sm">
-                        <span style="color: #3498db;">PROYEC</span>
-                        <span style="color: #e74c3c;">TECH</span>
+                        class="h-10 md:h-14 w-auto transition-transform group-hover:scale-105">
+                    <div class="flex items-center text-xl md:text-3xl font-black tracking-tighter drop-shadow-sm">
+                        <span class="text-secondary">PROYEC</span>
+                        <span class="text-accent">TECH</span>
                     </div>
                 </a>
 
@@ -80,7 +96,7 @@
                     <a href="productos.html" class="text-primary hover:text-secondary transition-colors">Productos</a>
                     <a href="contacto.html" class="text-primary hover:text-secondary transition-colors">Contacto</a>
                     <a href="https://wa.me/51984225797"
-                        class="btn-primary text-white px-6 py-2 rounded-full">Cotizar</a>
+                        class="btn-whatsapp text-white px-6 py-2 rounded-full font-bold">Cotizar</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -101,7 +117,7 @@
                     <a href="productos.html" class="text-primary hover:text-secondary transition-colors">Productos</a>
                     <a href="contacto.html" class="text-primary hover:text-secondary transition-colors">Contacto</a>
                     <a href="https://wa.me/51984225797?text=Hola,%20quiero%20información%20sobre%20Techos%20Aluzinc%20TR6"
-                        target="_blank" rel="noopener noreferrer" class="btn-primary text-white px-6 py-3 rounded-full font-semibold text-center">
+                        target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-white px-6 py-3 rounded-full font-semibold text-center">
                         Cotizar por WhatsApp
                     </a>
                 </div>
@@ -109,7 +125,7 @@
         </div>
     </nav>
 
-    <section class="bg-gradient-to-r from-primary to-gray-800 pt-32 pb-20 md:pt-40 md:pb-24">
+    <section class="bg-gradient-to-r from-primary to-slate-800 pt-32 pb-20 md:pt-40 md:pb-24">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Sobre PROYECTECH</h1>
             <p class="text-xl text-gray-200">Líderes en soluciones de techado industrial</p>
@@ -126,17 +142,19 @@
                     <p class="text-lg text-gray-700">Ofrecemos productos de alta calidad respaldados por un equipo
                         técnico capacitado y servicio excepcional.</p>
                 </div>
-                <div class="aspect-square bg-gradient-to-br from-primary to-secondary rounded-2xl shadow-2xl"></div>
+                <div class="aspect-square bg-gradient-to-br from-primary to-secondary rounded-2xl shadow-2xl overflow-hidden">
+                    <img src="assets/im1.jpg" alt="Nosotros" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity">
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 md:py-24 bg-gray-50">
+    <section class="py-16 md:py-24 bg-slate-50">
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-2xl p-10 shadow-lg icon-box">
+                <div class="bg-white rounded-2xl p-10 shadow-lg icon-box border-b-4 border-secondary">
                     <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-red-600 rounded-xl flex items-center justify-center mb-6">
+                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-700 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -146,7 +164,7 @@
                     <p class="text-lg text-gray-700">Proporcionar soluciones integrales de techado industrial con
                         Aluzinc TR6, garantizando satisfacción total mediante innovación y excelencia.</p>
                 </div>
-                <div class="bg-white rounded-2xl p-10 shadow-lg icon-box">
+                <div class="bg-white rounded-2xl p-10 shadow-lg icon-box border-b-4 border-accent">
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-accent to-yellow-600 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +183,8 @@
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-300 py-12">
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-300 py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <!-- Logo y descripción -->
@@ -210,11 +229,11 @@
                             <span>proyectech87@gmail.com</span>
                         </li>
                         <li class="flex items-center space-x-2">
-                            <a href="https://www.facebook.com/profile.php?id=100063903859126" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 16 16">
+                            <a href="https://www.facebook.com/profile.php?id=100063903859126" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 group">
+                                <svg class="w-5 h-5 text-facebook transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
                                 </svg>
-                                <span>PROYECTECH Facebook</span>
+                                <span class="group-hover:text-facebook transition-colors">PROYECTECH Facebook</span>
                             </a>
                         </li>
                     </ul>

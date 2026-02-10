@@ -19,16 +19,13 @@
     <!-- Custom CSS Variables -->
     <style>
         :root {
-            --color-primary: #2c3e50;
-            /* Azul Acero */
-            --color-secondary: #e74c3c;
-            /* Rojo Coral */
-            --color-accent: #f39c12;
-            /* Amarillo/Naranja */
-            --color-metallic: #95a5a6;
-            /* Gris Metálico */
-            --color-dark: #1a252f;
-            /* Azul Oscuro */
+            --color-primary: #0f172a; /* Slate 900 - More impactful */
+            --color-secondary: #2563eb; /* Blue 600 - Vibrant */
+            --color-accent: #f59e0b; /* Amber 500 - High contrast */
+            --color-metallic: #94a3b8; /* Slate 400 */
+            --color-dark: #020617; /* Darker Slate */
+            --color-whatsapp: #25D366;
+            --color-facebook: #1877F2;
         }
 
         body {
@@ -40,13 +37,27 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #c0392b 100%);
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #1d4ed8 100%);
             transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--color-whatsapp) 0%, #128c7e 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .text-facebook {
+            color: var(--color-facebook);
         }
 
         .navbar-sticky {
@@ -86,6 +97,12 @@
         }
 
         /* Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
         .mobile-menu.active {
             max-height: 500px;
         }
@@ -160,11 +177,13 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2c3e50',
-                        secondary: '#e74c3c',
-                        accent: '#f39c12',
-                        metallic: '#95a5a6',
-                        dark: '#1a252f',
+                        primary: '#0f172a',
+                        secondary: '#2563eb',
+                        accent: '#f59e0b',
+                        metallic: '#94a3b8',
+                        dark: '#020617',
+                        whatsapp: '#25D366',
+                        facebook: '#1877F2',
                     }
                 }
             }
@@ -172,18 +191,18 @@
     </script>
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-slate-50">
     <!-- Navbar -->
     <nav id="navbar" class="navbar-sticky fixed w-full top-0 z-50">
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo con Nombre -->
-                <a href="index.html" class="flex items-center space-x-4 group">
+                <a href="index.html" class="flex items-center space-x-2 md:space-x-4 group">
                     <img src="assets/logo_nuevo.png" alt="Icono"
-                        class="h-12 md:h-14 w-auto transition-transform group-hover:scale-105">
-                    <div class="flex items-center text-2xl md:text-3xl font-black tracking-tighter drop-shadow-sm">
-                        <span style="color: #3498db;">PROYEC</span>
-                        <span style="color: #e74c3c;">TECH</span>
+                        class="h-10 md:h-14 w-auto transition-transform group-hover:scale-105">
+                    <div class="flex items-center text-xl md:text-3xl font-black tracking-tighter drop-shadow-sm">
+                        <span class="text-secondary">PROYEC</span>
+                        <span class="text-accent">TECH</span>
                     </div>
                 </a>
 
@@ -195,7 +214,7 @@
                     <a href="productos.html" class="text-primary hover:text-secondary transition-colors">Productos</a>
                     <a href="contacto.html" class="text-primary hover:text-secondary transition-colors">Contacto</a>
                     <a href="https://wa.me/51984225797"
-                        class="btn-primary text-white px-6 py-2 rounded-full">Cotizar</a>
+                        class="btn-whatsapp text-white px-6 py-2 rounded-full font-bold">Cotizar</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -216,7 +235,7 @@
                     <a href="productos.html" class="text-primary hover:text-secondary transition-colors">Productos</a>
                     <a href="contacto.html" class="text-primary hover:text-secondary transition-colors">Contacto</a>
                     <a href="https://wa.me/51984225797?text=Hola,%20quiero%20información%20sobre%20Techos%20Aluzinc%20TR6"
-                        target="_blank" rel="noopener noreferrer" class="btn-primary text-white px-6 py-3 rounded-full font-semibold text-center">
+                        target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-white px-6 py-3 rounded-full font-semibold text-center">
                         Cotizar por WhatsApp
                     </a>
                 </div>
@@ -224,7 +243,7 @@
         </div>
     </nav>
     <!-- Hero Section with Carousel -->
-    <section class="carousel-container bg-primary pt-20 md:pt-24">
+    <section class="carousel-container bg-primary pt-24 md:pt-28">
         <!-- Slides -->
         <div class="carousel-slide active">
             <img src="assets/prod1.png" alt="Instalación Industrial Aluzinc">
@@ -246,7 +265,7 @@
         <div class="carousel-overlay">
             <div class="container mx-auto px-4 text-center">
                 <div class="max-w-4xl mx-auto animate-fade-in-up">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                    <h1 class="text-3xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
                         Soluciones Profesionales en <span class="text-accent">Aluzinc TR6</span>
                     </h1>
                     <p class="text-xl md:text-2xl text-gray-100 mb-10 leading-relaxed drop-shadow-md">
@@ -544,11 +563,11 @@
                             <span>proyectech87@gmail.com</span>
                         </li>
                         <li class="flex items-center space-x-2">
-                            <a href="https://www.facebook.com/profile.php?id=100063903859126" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2">
-                                <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 16 16">
+                            <a href="https://www.facebook.com/profile.php?id=100063903859126" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 group">
+                                <svg class="w-5 h-5 text-facebook transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
                                 </svg>
-                                <span>PROYECTECH Facebook</span>
+                                <span class="group-hover:text-facebook transition-colors">PROYECTECH Facebook</span>
                             </a>
                         </li>
                     </ul>
